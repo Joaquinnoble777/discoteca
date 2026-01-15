@@ -2,165 +2,212 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>DJ Eventos | Fiestas & Casamientos</title>
+  <title>WILD DISCOTEC | DJ & Discoteca Móvil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="DJ profesional para fiestas, eventos y casamientos. Sonido, iluminación, humo y visuales. Reservá tu fecha.">
-  <meta name="keywords" content="DJ eventos, DJ fiestas, DJ casamientos">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0b0b0f;
+      background: #000;
       color: #fff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
-      url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819') center/cover no-repeat;
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
     }
-    .neon {
-      color: #b400ff;
-      text-shadow: 0 0 10px #b400ff;
+    .logo {
+      font-size: 90px;
+      font-weight: 800;
+      letter-spacing: 6px;
     }
-    .btn-neon {
-      background: #b400ff;
-      color: #fff;
-      border-radius: 30px;
+    .subtitle {
+      color: #aaa;
     }
-    .btn-neon:hover {
-      background: #8a00c4;
+    .section {
+      padding: 90px 0;
+    }
+    .divider {
+      width: 70px;
+      height: 3px;
+      background: #fff;
+      margin: 20px auto;
     }
     .card {
-      background-color: #12121a;
+      background: #111;
       border: none;
+      height: 100%;
     }
-    .price {
-      font-size: 2rem;
-      color: #00e5ff;
+    .icon {
+      font-size: 36px;
+      margin-bottom: 15px;
     }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    .btn-wsp {
       background: #25D366;
       color: #fff;
-      font-size: 26px;
-      padding: 14px 18px;
-      border-radius: 50%;
-      z-index: 1000;
+      font-weight: 600;
+    }
+    .btn-wsp:hover {
+      background: #1ebe5d;
+      color: #fff;
+    }
+    input, select {
+      background: #000 !important;
+      color: #fff !important;
+      border: 1px solid #333 !important;
     }
   </style>
 </head>
 <body>
 
 <!-- HERO -->
-<section class="hero d-flex align-items-center text-center">
-  <div class="container">
-    <h1 class="display-4 fw-bold">¿Buscás discoteca para tu fiesta o evento?</h1>
-    <p class="lead mt-3">DJ en vivo, sonido profesional, iluminación, máquina de humo y proyección de videos</p>
-    <div class="mt-4">
-      <a href="#contacto" class="btn btn-neon btn-lg me-3">Reservar fecha</a>
-      <a href="https://wa.me/59899999999" class="btn btn-outline-light btn-lg">WhatsApp</a>
-    </div>
+<section class="hero container">
+  <div class="w-100">
+    <div class="logo">W</div>
+    <h1 class="fw-bold">WILD DISCOTEC</h1>
+    <p class="subtitle">DJ Profesional · Discoteca Móvil · Eventos Privados</p>
+    <a href="#reserva" class="btn btn-wsp px-4 py-2 mt-3">
+      Reservar fecha
+    </a>
   </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section container text-center">
+  <h2>Experiencia que se siente</h2>
+  <div class="divider"></div>
+  <p class="subtitle col-md-8 mx-auto">
+    En WILD DISCOTEC creamos experiencias únicas para fiestas privadas y eventos sociales.
+    Música personalizada, sonido profesional y un ambiente tipo discoteca adaptado a tu evento.
+  </p>
 </section>
 
 <!-- SERVICIOS -->
-<section class="py-5">
-  <div class="container text-center">
-    <h2 class="neon mb-4">Servicios</h2>
-    <div class="row g-4">
-      <div class="col-md-4"><i class="bi bi-music-note-beamed fs-1"></i><p>DJ en vivo (Pioneer DDJ-FLX4)</p></div>
-      <div class="col-md-4"><i class="bi bi-speaker fs-1"></i><p>Sonido profesional</p></div>
-      <div class="col-md-4"><i class="bi bi-lightbulb fs-1"></i><p>Iluminación rítmica</p></div>
-      <div class="col-md-6"><i class="bi bi-cloud-fog2 fs-1"></i><p>Máquina de humo</p></div>
-      <div class="col-md-6"><i class="bi bi-projector fs-1"></i><p>Visuales y proyección</p></div>
-    </div>
+<section class="section container">
+  <div class="text-center mb-5">
+    <h2>Servicios</h2>
+    <div class="divider"></div>
   </div>
-</section>
 
-<!-- EVENTOS -->
-<section class="py-5 bg-dark">
-  <div class="container text-center">
-    <h2 class="neon mb-4">Tipos de Eventos</h2>
-    <div class="row g-4">
-      <div class="col-md-3">🎂 Cumpleaños</div>
-      <div class="col-md-3">💍 Casamientos</div>
-      <div class="col-md-3">🎉 Fiestas privadas</div>
-      <div class="col-md-3">🏢 Eventos empresariales</div>
+  <div class="row text-center g-4">
+    <div class="col-md-4">
+      <div class="card p-4">
+        <div class="icon"><i class="bi bi-music-note-beamed"></i></div>
+        <h5>DJ Profesional</h5>
+        <p class="subtitle">Selección musical adaptada al público y tipo de evento.</p>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- PRECIOS -->
-<section class="py-5">
-  <div class="container text-center">
-    <h2 class="neon mb-5">Packs & Precios</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card p-4">
-          <h4>Pack Básico</h4>
-          <p class="price">$150</p>
-          <p>DJ + sonido + iluminación básica</p>
-        </div>
+    <div class="col-md-4">
+      <div class="card p-4">
+        <div class="icon"><i class="bi bi-speaker"></i></div>
+        <h5>Sonido & Luces</h5>
+        <p class="subtitle">Sonido potente e iluminación LED tipo discoteca.</p>
       </div>
-      <div class="col-md-4">
-        <div class="card p-4 border border-primary">
-          <h4>Pack Intermedio</h4>
-          <p class="price">$250</p>
-          <p>DJ + luces + humo + visuales</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-4">
-          <h4>Pack Premium</h4>
-          <p class="price">$350</p>
-          <p>Experiencia completa + pista full</p>
-        </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-4">
+        <div class="icon"><i class="bi bi-cloud-fog2"></i></div>
+        <h5>Efectos Visuales</h5>
+        <p class="subtitle">Máquina de humo y proyector de video.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-5 bg-dark">
-  <div class="container">
-    <h2 class="neon text-center mb-4">Contacto</h2>
-    <form class="row g-3">
-      <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Nombre" required>
+<!-- PLANES -->
+<section class="section container">
+  <div class="text-center mb-5">
+    <h2>Planes</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="row g-4 text-center">
+    <div class="col-md-4">
+      <div class="card p-4">
+        <h4>Basic Wild</h4>
+        <p class="subtitle">Hasta 4 horas</p>
+        <h5>$6.500</h5>
       </div>
-      <div class="col-md-6">
-        <input type="date" class="form-control" required>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-4 border border-light">
+        <h4>Wild Party</h4>
+        <p class="subtitle">Hasta 6 horas</p>
+        <h5>$9.500</h5>
       </div>
-      <div class="col-12">
-        <input type="text" class="form-control" placeholder="Tipo de evento">
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-4">
+        <h4>Wild Experience</h4>
+        <p class="subtitle">Hasta 8 horas</p>
+        <h5>$13.500</h5>
       </div>
-      <div class="col-12">
-        <textarea class="form-control" rows="4" placeholder="Mensaje"></textarea>
-      </div>
-      <div class="col-12 text-center">
-        <button class="btn btn-neon btn-lg">Enviar consulta</button>
-      </div>
-    </form>
+    </div>
   </div>
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/59899999999" class="whatsapp">
-  <i class="bi bi-whatsapp"></i>
-</a>
+<!-- DIFERENCIA -->
+<section class="section container text-center">
+  <h2>¿Por qué WILD DISCOTEC?</h2>
+  <div class="divider"></div>
+  <p class="subtitle col-md-8 mx-auto">
+    ✔ Puntualidad y profesionalismo  
+    ✔ Equipamiento propio  
+    ✔ Atención personalizada  
+    ✔ Ambiente real de discoteca  
+    ✔ Música a tu medida
+  </p>
+</section>
+
+<!-- RESERVA -->
+<section id="reserva" class="section container">
+  <div class="text-center mb-4">
+    <h2>Reservar fecha</h2>
+    <div class="divider"></div>
+    <p class="subtitle">Completá el formulario y te respondemos por WhatsApp</p>
+  </div>
+
+  <form onsubmit="enviarWSP(); return false;" class="col-md-6 mx-auto">
+    <input class="form-control mb-3" id="nombre" placeholder="Nombre" required>
+    <input type="date" class="form-control mb-3" id="fecha" required>
+    <select class="form-control mb-3" id="plan" required>
+      <option value="">Elegir plan</option>
+      <option>Plan Basic Wild</option>
+      <option>Plan Wild Party</option>
+      <option>Plan Wild Experience</option>
+    </select>
+    <input class="form-control mb-3" id="lugar" placeholder="Lugar del evento" required>
+    <button class="btn btn-wsp w-100 py-2">Enviar por WhatsApp</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-4 subtitle">
+  © WILD DISCOTEC · DJ & Discoteca Móvil
+</footer>
+
+<script>
+function enviarWSP() {
+  const n = nombre.value;
+  const f = fecha.value;
+  const p = plan.value;
+  const l = lugar.value;
+
+  const msg = `Hola, soy ${n}. Quiero reservar el ${p} para el ${f}. Evento en ${l}.`;
+  window.open(`https://wa.me/59892214516?text=${encodeURIComponent(msg)}`, "_blank");
+}
+</script>
 
 </body>
 </html>
