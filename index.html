@@ -2,212 +2,606 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>WILD DISCOTEC | DJ & Discoteca Móvil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Wild Discotec | DJ Profesional Montevideo</title>
+  <!-- Meta tags básicos SEO -->
+  <meta name="description" content="¿Buscas un DJ para tu fiesta en Montevideo? En Wild Discotec ofrecemos sonido profesional, show de luces y la mejor energía para bodas, cumpleaños y eventos. ¡Reserva tu fecha!">
+  <meta name="keywords" content="DJ Montevideo, fiestas Montevideo, sonido profesional, luces para eventos, boda DJ, cumpleaños">
+  <!-- Fuentes modernas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (íconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    /* RESET Y VARIABLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .hero {
-      min-height: 100vh;
+    :root {
+      --black: #0a0a0a;
+      --black-light: #111111;
+      --gold: #D4AF37;
+      --gold-hover: #b8960c;
+      --neon-blue: #00ffff;
+      --neon-fuchsia: #ff00ff;
+      --white: #ffffff;
+      --gray: #cccccc;
+      --dark-gray: #222;
+      --shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+      --transition: all 0.3s ease;
+    }
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 80px 0;
+    }
+    /* BOTONES Y CTAS */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      text-align: center;
+      background: transparent;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-wa-flotante {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: var(--transition);
+      text-decoration: none;
     }
-    .logo {
-      font-size: 90px;
+    .btn-wa-flotante:hover {
+      transform: scale(1.1);
+      background: #20b859;
+    }
+    .btn-wa-flotante span {
+      display: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+    /* para pantallas grandes se puede expandir */
+    @media (min-width: 768px) {
+      .btn-wa-flotante {
+        width: auto;
+        border-radius: 50px;
+        padding: 0 25px 0 20px;
+        gap: 8px;
+      }
+      .btn-wa-flotante span {
+        display: inline;
+      }
+    }
+    /* TARJETAS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .plan-card {
+      background: var(--black-light);
+      border-radius: 24px;
+      padding: 30px 20px;
+      transition: var(--transition);
+      border: 1px solid #2a2a2a;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .plan-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+    }
+    .plan-card.destacado {
+      border: 2px solid var(--gold);
+      background: linear-gradient(145deg, #111 0%, #1a150a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-card.destacado::before {
+      content: "🔥 MÁS ELEGIDO";
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: var(--gold);
+      color: var(--black);
       font-weight: 800;
-      letter-spacing: 6px;
+      font-size: 0.8rem;
+      padding: 5px 40px;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
     }
-    .subtitle {
-      color: #aaa;
+    .plan-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
-    .section {
-      padding: 90px 0;
-    }
-    .divider {
-      width: 70px;
-      height: 3px;
-      background: #fff;
-      margin: 20px auto;
-    }
-    .card {
-      background: #111;
-      border: none;
-      height: 100%;
-    }
-    .icon {
-      font-size: 36px;
+    .plan-title {
+      font-size: 1.8rem;
+      font-weight: 800;
       margin-bottom: 15px;
     }
-    .btn-wsp {
-      background: #25D366;
-      color: #fff;
-      font-weight: 600;
+    .plan-features {
+      list-style: none;
+      margin: 20px 0;
+      flex-grow: 1;
     }
-    .btn-wsp:hover {
-      background: #1ebe5d;
-      color: #fff;
+    .plan-features li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
-    input, select {
-      background: #000 !important;
-      color: #fff !important;
-      border: 1px solid #333 !important;
+    .plan-features i {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-top: 3px;
+      min-width: 20px;
+    }
+    .plan-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 15px 0 5px;
+    }
+    .plan-price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    .btn-card {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: white;
+      border-radius: 50px;
+      padding: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: 15px;
+      text-align: center;
+    }
+    .btn-card:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: url('https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+      background-blend-mode: overlay;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(45deg, rgba(10,10,10,0.9) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .hero h1 span {
+      color: var(--gold);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      color: var(--gray);
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+    }
+    /* GALERÍA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+    }
+    .gallery-item img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img, .gallery-item:hover video {
+      transform: scale(1.1);
+    }
+    .gallery-item .play-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(212, 175, 55, 0.8);
+      border-radius: 50%;
+      width: 50px; height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .play-icon {
+      opacity: 1;
+    }
+    /* TESTIMONIOS SLIDER */
+    .testimonios-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 30px;
+      padding: 20px 0 30px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) #222;
+    }
+    .testimonios-slider::-webkit-scrollbar {
+      height: 6px;
+    }
+    .testimonios-slider::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 10px;
+    }
+    .testimonio-item {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: #111;
+      padding: 25px;
+      border-radius: 24px;
+      border: 1px solid #2a2a2a;
+    }
+    .testimonio-foto {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 2px solid var(--gold);
+    }
+    /* DIFFERENCIALES */
+    .diferenciales-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+    }
+    .diferencial-item {
+      text-align: center;
+      background: #111;
+      padding: 30px 20px;
+      border-radius: 30px;
+      border: 1px solid #222;
+    }
+    .diferencial-item i {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+    /* CONTACTO */
+    .contacto-form {
+      max-width: 600px;
+      background: #111;
+      padding: 40px;
+      border-radius: 30px;
+      border: 1px solid #2a2a2a;
+    }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-group input, .input-group select, .input-group textarea {
+      width: 100%;
+      padding: 15px 20px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 60px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+    /* ANIMACIONES SCROLL (simples con aparición) */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/598092214516?text=Hola%20Wild%20Discotec!%20Quiero%20consultar%20disponibilidad%20para%20mi%20evento%20🎧🔥" class="btn-wa-flotante" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>Reservá tu fecha ahora</span>
+  </a>
 
-<!-- HERO -->
-<section class="hero container">
-  <div class="w-100">
-    <div class="logo">W</div>
-    <h1 class="fw-bold">WILD DISCOTEC</h1>
-    <p class="subtitle">DJ Profesional · Discoteca Móvil · Eventos Privados</p>
-    <a href="#reserva" class="btn btn-wsp px-4 py-2 mt-3">
-      Reservar fecha
-    </a>
-  </div>
-</section>
+  <!-- HERO SECTION -->
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <h1>Wild Discotec<br><span>Creamos experiencias</span> musicales inolvidables</h1>
+      <p>DJ profesional + Sonido Premium + Producción integral para tu evento en Montevideo</p>
+      <a href="https://wa.me/598092214516?text=Hola!%20Vi%20el%20sitio%20y%20quiero%20reservar%20mi%20fecha%20🎉" class="btn btn-primary" target="_blank">📅 Reserva tu fecha</a>
+    </div>
+  </section>
 
-<!-- SOBRE -->
-<section class="section container text-center">
-  <h2>Experiencia que se siente</h2>
-  <div class="divider"></div>
-  <p class="subtitle col-md-8 mx-auto">
-    En WILD DISCOTEC creamos experiencias únicas para fiestas privadas y eventos sociales.
-    Música personalizada, sonido profesional y un ambiente tipo discoteca adaptado a tu evento.
-  </p>
-</section>
-
-<!-- SERVICIOS -->
-<section class="section container">
-  <div class="text-center mb-5">
-    <h2>Servicios</h2>
-    <div class="divider"></div>
-  </div>
-
-  <div class="row text-center g-4">
-    <div class="col-md-4">
-      <div class="card p-4">
-        <div class="icon"><i class="bi bi-music-note-beamed"></i></div>
-        <h5>DJ Profesional</h5>
-        <p class="subtitle">Selección musical adaptada al público y tipo de evento.</p>
+  <!-- SOBRE WILD -->
+  <section class="container fade-up" id="sobre">
+    <h2>Sobre Wild Discotec</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      <div style="flex: 1; min-width: 260px;">
+        <img src="https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="DJ en cabina" style="width: 100%; border-radius: 30px; border: 3px solid var(--gold);">
+      </div>
+      <div style="flex: 2;">
+        <p style="font-size: 1.3rem; margin-bottom: 20px;">Soy productor musical y DJ con más de 8 años de experiencia haciendo vibrar las mejores pistas de Montevideo. Para mí, cada evento es único y merece una experiencia a medida.</p>
+        <p style="color: var(--gold); font-size: 1.8rem; font-weight: 700; font-family: 'Montserrat';">“No solo hago música, creo experiencias que se sienten y se recuerdan”</p>
       </div>
     </div>
+  </section>
 
-    <div class="col-md-4">
-      <div class="card p-4">
-        <div class="icon"><i class="bi bi-speaker"></i></div>
-        <h5>Sonido & Luces</h5>
-        <p class="subtitle">Sonido potente e iluminación LED tipo discoteca.</p>
+  <!-- PLANES / SERVICIOS -->
+  <section class="container" id="planes">
+    <h2>Planes pensados para vos</h2>
+    <div class="cards-grid">
+      <!-- PLAN BASE -->
+      <div class="plan-card fade-up">
+        <div class="plan-icon"><i class="fas fa-music"></i></div>
+        <div class="plan-title">🎧 PLAN FIESTA BASE</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> DJ en vivo 4 horas</li>
+          <li><i class="fas fa-check-circle"></i> Sonido profesional 2 tops + sub</li>
+          <li><i class="fas fa-check-circle"></i> Micrófono inalámbrico</li>
+          <li><i class="fas fa-check-circle"></i> Iluminación LED pista</li>
+          <li><i class="fas fa-check-circle"></i> Armado y desarme</li>
+          <li><i class="fas fa-check-circle"></i> Reggaetón / Perreo / Cachengue</li>
+        </ul>
+        <div class="plan-price">USD 400 <small>desde</small></div>
+        <a href="https://wa.me/598092214516?text=Hola!%20Quiero%20contratar%20el%20PLAN%20FIESTA%20BASE%20para%20mi%20evento%20🎧🔥" class="btn-card" target="_blank">Reservar por WhatsApp</a>
+      </div>
+      <!-- PLAN PRO (DESTACADO) -->
+      <div class="plan-card destacado fade-up">
+        <div class="plan-icon"><i class="fas fa-star"></i></div>
+        <div class="plan-title">🥈 PLAN EXPERIENCIA PRO</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> DJ profesional 5 horas</li>
+          <li><i class="fas fa-check-circle"></i> Sonido reforzado (2 tops + 2 subs)</li>
+          <li><i class="fas fa-check-circle"></i> 4 Moving Heads + show DMX</li>
+          <li><i class="fas fa-check-circle"></i> Iluminación ambiental</li>
+          <li><i class="fas fa-check-circle"></i> Máquina de humo</li>
+          <li><i class="fas fa-check-circle"></i> Asistente técnico</li>
+          <li><i class="fas fa-check-circle"></i> Micrófono inalámbrico</li>
+        </ul>
+        <div class="plan-price">USD 850 <small>desde</small></div>
+        <a href="https://wa.me/598092214516?text=Hola!%20Quiero%20contratar%20el%20PLAN%20EXPERIENCIA%20PRO%20🥈✨" class="btn-card" target="_blank">Reservar por WhatsApp</a>
+      </div>
+      <!-- PLAN PREMIUM SHOW -->
+      <div class="plan-card fade-up">
+        <div class="plan-icon"><i class="fas fa-crown"></i></div>
+        <div class="plan-title">🥇 PLAN PREMIUM SHOW</div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check-circle"></i> DJ en vivo hasta 6h</li>
+          <li><i class="fas fa-check-circle"></i> Sonido alta potencia + doble sub</li>
+          <li><i class="fas fa-check-circle"></i> 6–8 Moving Heads DMX</li>
+          <li><i class="fas fa-check-circle"></i> Pantalla LED o proyección</li>
+          <li><i class="fas fa-check-circle"></i> Máquina humo + efectos</li>
+          <li><i class="fas fa-check-circle"></i> Coordinación técnica</li>
+          <li><i class="fas fa-check-circle"></i> Reunión previa personalizada</li>
+        </ul>
+        <div class="plan-price">USD 1.800 <small>desde</small></div>
+        <a href="https://wa.me/598092214516?text=Hola!%20Quiero%20el%20PLAN%20PREMIUM%20SHOW%20🥇🔥%20para%20mi%20evento%20exclusivo" class="btn-card" target="_blank">Reservar por WhatsApp</a>
       </div>
     </div>
+  </section>
 
-    <div class="col-md-4">
-      <div class="card p-4">
-        <div class="icon"><i class="bi bi-cloud-fog2"></i></div>
-        <h5>Efectos Visuales</h5>
-        <p class="subtitle">Máquina de humo y proyector de video.</p>
+  <!-- GALERÍA / VIDEOS -->
+  <section class="container" id="galeria">
+    <h2>Momentos Wild</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Pista de baile"><div class="play-icon"><i class="fas fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Luces y DJ"><div class="play-icon"><i class="fas fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Público"><div class="play-icon"><i class="fas fa-expand"></i></div></div>
+      <div class="gallery-item"><video loop muted playsinline><source src="https://videos.pexels.com/video-files/2278095/2278095-uhd_3840_2160_25fps.mp4" type="video/mp4"></video><div class="play-icon"><i class="fas fa-play"></i></div></div>
+    </div>
+    <p style="text-align:center; margin-top:20px"><i class="fas fa-mouse-pointer"></i> Hacé clic para ampliar</p>
+  </section>
+
+  <!-- TESTIMONIOS SLIDER -->
+  <section class="container" id="testimonios">
+    <h2>Lo que dicen</h2>
+    <div class="testimonios-slider">
+      <div class="testimonio-item"><img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonio-foto" alt="cliente"><p>"Increíble la energía, todos bailaron sin parar. Muy profesional."</p><h4>- Ana, Boda</h4></div>
+      <div class="testimonio-item"><img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonio-foto" alt="cliente"><p>"Contratamos el Plan Pro, superó expectativas. Sonido y luces de primera."</p><h4>- Martín, 30 años</h4></div>
+      <div class="testimonio-item"><img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonio-foto" alt="cliente"><p>"Mi cumple de 15 fue un sueño, gracias Wild Discotec!"</p><h4>- Sofía, 15 años</h4></div>
+      <div class="testimonio-item"><img src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonio-foto" alt="cliente"><p>"La pista explotó, todos preguntaban por el DJ. 10/10."</p><h4>- Lucas, Corporativo</h4></div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIALES -->
+  <section class="container" id="diferenciales">
+    <h2>¿Por qué Wild Discotec?</h2>
+    <div class="diferenciales-grid">
+      <div class="diferencial-item"><i class="fas fa-headphones-alt"></i><h4>Experiencia musical</h4></div>
+      <div class="diferencial-item"><i class="fas fa-volume-up"></i><h4>Sonido premium</h4></div>
+      <div class="diferencial-item"><i class="fas fa-lightbulb"></i><h4>Iluminación DMX</h4></div>
+      <div class="diferencial-item"><i class="fas fa-cogs"></i><h4>Producción integral</h4></div>
+      <div class="diferencial-item"><i class="fas fa-tools"></i><h4>Asistencia técnica</h4></div>
+      <div class="diferencial-item"><i class="fas fa-users"></i><h4>Set a tu público</h4></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO / RESERVA -->
+  <section class="container" id="contacto">
+    <h2>Contacto & Reserva</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <div class="contacto-form fade-up">
+        <form id="formContacto" action="#" method="post">
+          <div class="input-group"><input type="text" placeholder="Nombre completo" required></div>
+          <div class="input-group"><input type="date" placeholder="Fecha del evento" required></div>
+          <div class="input-group">
+            <select required>
+              <option value="">Tipo de evento</option>
+              <option>Boda</option>
+              <option>Cumpleaños</option>
+              <option>Corporativo</option>
+              <option>Fiesta privada</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="input-group"><input type="number" placeholder="Cantidad aproximada de personas"></div>
+          <div class="input-group"><textarea rows="2" placeholder="Comentarios adicionales..."></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%"><i class="fab fa-whatsapp"></i> Enviar consulta por WhatsApp</button>
+        </form>
+        <script>
+          document.getElementById('formContacto').addEventListener('submit', function(e){
+            e.preventDefault();
+            const nombre = this.querySelector('input[type="text"]').value;
+            const fecha = this.querySelector('input[type="date"]').value;
+            const tipo = this.querySelector('select').value;
+            const personas = this.querySelector('input[type="number"]').value;
+            const mensaje = `Hola! Me interesa contratar.%0ANombre: ${nombre}%0AFecha: ${fecha}%0AEvento: ${tipo}%0APersonas: ${personas}`;
+            window.open(`https://wa.me/598092214516?text=${mensaje}`, '_blank');
+          });
+        </script>
+        <p style="margin-top:20px"><i class="fas fa-phone-alt"></i> 092 214 516 &nbsp; | &nbsp; <i class="fas fa-envelope"></i> hola@wilddiscotec.uy</p>
+        <p><i class="fas fa-map-marker-alt"></i> Montevideo y alrededores</p>
+      </div>
+      <div style="flex:1; min-width:260px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d209343.723630712!2d-56.26315695!3d-34.901113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f80ffc63bf7d3%3A0x6b321b2e355bec53!2sMontevideo%2C%20Departamento%20de%20Montevideo!5e0!3m2!1ses-419!2suy!4v1710101010101" width="100%" height="250" style="border:0; border-radius:30px;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PLANES -->
-<section class="section container">
-  <div class="text-center mb-5">
-    <h2>Planes</h2>
-    <div class="divider"></div>
-  </div>
-
-  <div class="row g-4 text-center">
-    <div class="col-md-4">
-      <div class="card p-4">
-        <h4>Basic Wild</h4>
-        <p class="subtitle">Hasta 4 horas</p>
-        <h5>$6.500</h5>
-      </div>
+  <footer>
+    <p>© 2026 Wild Discotec – DJ Profesional Montevideo. Todos los derechos reservados.</p>
+    <div style="margin-top:15px; font-size:2rem; color: var(--gold);">
+      <i class="fab fa-instagram"></i>   <i class="fab fa-tiktok"></i>   <i class="fab fa-youtube"></i>
     </div>
+  </footer>
 
-    <div class="col-md-4">
-      <div class="card p-4 border border-light">
-        <h4>Wild Party</h4>
-        <p class="subtitle">Hasta 6 horas</p>
-        <h5>$9.500</h5>
-      </div>
-    </div>
+  <!-- SCRIPT PARA ANIMACIÓN FADE-UP -->
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
 
-    <div class="col-md-4">
-      <div class="card p-4">
-        <h4>Wild Experience</h4>
-        <p class="subtitle">Hasta 8 horas</p>
-        <h5>$13.500</h5>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFERENCIA -->
-<section class="section container text-center">
-  <h2>¿Por qué WILD DISCOTEC?</h2>
-  <div class="divider"></div>
-  <p class="subtitle col-md-8 mx-auto">
-    ✔ Puntualidad y profesionalismo  
-    ✔ Equipamiento propio  
-    ✔ Atención personalizada  
-    ✔ Ambiente real de discoteca  
-    ✔ Música a tu medida
-  </p>
-</section>
-
-<!-- RESERVA -->
-<section id="reserva" class="section container">
-  <div class="text-center mb-4">
-    <h2>Reservar fecha</h2>
-    <div class="divider"></div>
-    <p class="subtitle">Completá el formulario y te respondemos por WhatsApp</p>
-  </div>
-
-  <form onsubmit="enviarWSP(); return false;" class="col-md-6 mx-auto">
-    <input class="form-control mb-3" id="nombre" placeholder="Nombre" required>
-    <input type="date" class="form-control mb-3" id="fecha" required>
-    <select class="form-control mb-3" id="plan" required>
-      <option value="">Elegir plan</option>
-      <option>Plan Basic Wild</option>
-      <option>Plan Wild Party</option>
-      <option>Plan Wild Experience</option>
-    </select>
-    <input class="form-control mb-3" id="lugar" placeholder="Lugar del evento" required>
-    <button class="btn btn-wsp w-100 py-2">Enviar por WhatsApp</button>
-  </form>
-</section>
-
-<!-- FOOTER -->
-<footer class="text-center py-4 subtitle">
-  © WILD DISCOTEC · DJ & Discoteca Móvil
-</footer>
-
-<script>
-function enviarWSP() {
-  const n = nombre.value;
-  const f = fecha.value;
-  const p = plan.value;
-  const l = lugar.value;
-
-  const msg = `Hola, soy ${n}. Quiero reservar el ${p} para el ${f}. Evento en ${l}.`;
-  window.open(`https://wa.me/59892214516?text=${encodeURIComponent(msg)}`, "_blank");
-}
-</script>
-
+    // lightbox simulado para galería (ampliación simple)
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const media = this.querySelector('img, video');
+        if (media) {
+          const src = media.tagName === 'IMG' ? media.src : media.querySelector('source')?.src || media.src;
+          if (media.tagName === 'IMG') window.open(src, '_blank');
+          else alert('🎥 Video: ' + src); // simplificado, pero en un sitio real se implementaría un lightbox completo.
+        }
+      });
+    });
+  </script>
 </body>
 </html>
